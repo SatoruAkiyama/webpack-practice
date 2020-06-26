@@ -2,6 +2,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { loader } = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/js/main.js",
@@ -16,6 +17,18 @@ module.exports = {
         use: [
           { loader: MiniCssExtractPlugin.loader },
           { loader: "css-loader" },
+        ],
+      },
+      {
+        test: /\.(png)/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              esModule: false,
+              name: "images/[name].[ext]",
+            },
+          },
         ],
       },
     ],

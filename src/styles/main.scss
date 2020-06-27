@@ -1,0 +1,10 @@
+$text-color: hsl(256, 62%, 84%);
+
+body {
+  color: $text-color;
+  background-color: hsl(256, 93%, 17%);
+}
+
+a {
+  color: $text-color;
+}
